@@ -7,6 +7,7 @@ running = False
 
 def bot_loop():
     global running
+    time.sleep(5) # wait for the game to start
     last_f7_time = time.time()
 
     while running:
