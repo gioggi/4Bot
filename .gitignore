@@ -1,0 +1,30 @@
+# 🔹 Cartelle di PyInstaller (evita di tracciare i file generati)
+dist/
+build/
+*.spec
+
+# 🔹 Cartelle di Python (evita file temporanei e ambienti virtuali)
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.swp
+*.swo
+.env/
+.venv/
+
+# 🔹 File di log e di sistema
+*.log
+.DS_Store
+Thumbs.db
+
+# 🔹 Librerie installate (se usi venv)
+venv/
+pip-log.txt
+pip-delete-this-directory.txt
+
+# 🔹 File di test e copertura del codice
+.coverage
+.tox/
+nosetests.xml
+pytest_cache/
