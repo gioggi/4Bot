@@ -1,35 +1,24 @@
-import pydirectinput  # Alternativa a PyAutoGUI per DirectX
 import time
 import threading
 import tkinter as tk
-import mss
-import numpy as np
-import cv2
+import keyboard  # Migliore per DirectX 12 rispetto a PyDirectInput
 
-running = False  # Variabile per controllare lo stato del bot
-
-def cattura_schermo():
-    """Cattura lo schermo anche con giochi DirectX."""
-    with mss.mss() as sct:
-        monitor = sct.monitors[1]  # Se hai più monitor, scegli quello giusto
-        screenshot = sct.grab(monitor)
-        img = np.array(screenshot)
-        return cv2.cvtColor(img, cv2.COLOR_BGRA2GRAY)  # Converti in scala di grigi
+running = False
 
 def bot_loop():
     global running
     last_f7_time = time.time()
 
     while running:
-        pydirectinput.press("tab")  # Cambia target
+        keyboard.press_and_release("tab")  # Cambia target
         time.sleep(0.2)
-        pydirectinput.press("2")  # Attacco
+        keyboard.press_and_release("2")  # Attacco
 
         if time.time() - last_f7_time >= 18:
-            pydirectinput.press("f7")
+            keyboard.press_and_release("f7")
             print("F7 premuto!")
-            pydirectinput.press("9")
-            print("9 premuto!")
+            keyboard.press_and_release("7")
+            print("7 premuto!")
             last_f7_time = time.time()
 
         time.sleep(2)
